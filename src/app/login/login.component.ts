@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import axios from 'axios';
 
 @Component({
@@ -12,7 +13,7 @@ import axios from 'axios';
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder ,private router: Router) {
     this.loginForm = this.fb.group({
       username: '',
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -27,10 +28,12 @@ export class LoginComponent {
         console.log(response.data.username);
         console.log(response.data.accessToken);
         localStorage.setItem("accessToken",response.data.accessToken);
+            
       })
       .catch(function (error) {
         console.log(error);
       });
-    }
+    } 
+    this.router.navigate(['/greet']);   
   }
 }

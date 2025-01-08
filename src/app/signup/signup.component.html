@@ -1,32 +1,39 @@
 <h2>Signup</h2>
-    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-      <label>
-        Name:
-        <input type="text" formControlName="name" required />
-      </label>
-      <label>
-        Email:
-        <input type="email" formControlName="email" required />
-      </label>
-      <label>
-        Password:
-        <input type="password" formControlName="password" required />
-      </label>
-      <label>
-        Mobile:
-        <input type="password" formControlName="password" required />
-      </label>
-      <label>
-        Address:
-        <input type="password" formControlName="password" required />
-      </label>
-      <label>
-        Gender:
-        <input type="password" formControlName="password" required />
-      </label>
-      <label>
-        Password:
-        <input type="password" formControlName="password" required />
-      </label>
-      <button type="submit">Signup</button>
-    </form>
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <label>
+    Username:
+    <input type="text" formControlName="username" required />
+  </label>
+  <br />
+  <label>
+    Email:
+    <input type="email" formControlName="email" required />
+  </label>
+  <br />
+  <label>
+    Password:
+    <input type="password" formControlName="password" required />
+  </label>
+  <br />
+  <label>
+    Mobile:
+    <input type="text" formControlName="mobile" required />
+  </label>
+  <br />
+  <label>
+    Address:
+    <input type="text" formControlName="address" required />
+  </label>
+  <br />
+  <label>
+    Gender:
+    <select formControlName="gender" required>
+      <option value="" disabled selected>Select your gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+  </label>
+  <br />
+  <button type="submit">Signup</button>
+</form>

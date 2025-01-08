@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [ReactiveFormsModule], // Ensure ReactiveFormsModule is imported
+  imports: [ReactiveFormsModule], 
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
 })
@@ -22,6 +22,8 @@ export class SignupComponent {
   onSubmit() {
     if (this.signupForm.valid) {
       console.log(this.signupForm.value);
+    }else {
+      console.log('Form is invalid');
     }
   }
 }

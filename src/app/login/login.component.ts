@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import axios from 'axios';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder) {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: '',
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
@@ -21,6 +22,15 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
+      axios.post('http://localhost:8080/api/auth/signin',this.loginForm.value)
+      .then(function (response) {
+        console.log(response.data.username);
+        console.log(response.data.accessToken);
+        localStorage.setItem("accessToken",response.data.accessToken);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     }
   }
 }

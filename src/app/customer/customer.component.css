@@ -1,0 +1,128 @@
+/* Base styles for the customer list page */
+.customer-list {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .table th, .table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .table th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .table tr:hover {
+    background-color: #ddd;
+  }
+  
+  /* Styling for the "Create New Customer" button */
+  .btn {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .create-btn {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .create-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .action-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 4px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .show-btn {
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  .show-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .edit-btn {
+    background-color: #FFD700;
+    color: white;
+  }
+  
+  .edit-btn:hover {
+    background-color: #e6c400;
+  }
+  
+  .delete-btn {
+    background-color: #FF6347;
+    color: white;
+  }
+  
+  .delete-btn:hover {
+    background-color: #e5533d;
+  }
+  
+  /* Disabled buttons */
+  button[disabled] {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+  }
+  
+  /* Add responsiveness for mobile devices */
+  @media (max-width: 768px) {
+    .customer-list {
+      padding: 10px;
+    }
+  
+    .table th, .table td {
+      font-size: 14px;
+    }
+  
+    .btn {
+      font-size: 14px;
+      padding: 8px 16px;
+      
+    }
+  
+    .action-btn {
+      font-size: 12px;
+      padding: 6px 12px;
+    }
+    .actions{
+        gap: 5px;
+    }
+  }
+  

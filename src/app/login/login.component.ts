@@ -13,27 +13,30 @@ import axios from 'axios';
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder ,private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.loginForm = this.fb.group({
-      username: '',
+      username: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
-      axios.post('http://localhost:8080/api/auth/signin',this.loginForm.value)
-      .then(function (response) {
-        console.log(response.data.username);
-        console.log(response.data.accessToken);
-        localStorage.setItem("accessToken",response.data.accessToken);
-            
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    } 
-    this.router.navigate(['/greet']);   
+      try {
+        const response = await axios.post('http://localhost:8080/api/auth/signin', this.loginForm.value);
+       
+        localStorage.setItem('accessToken', response.data.accessToken);
+        localStorage.setItem('username', response.data.username);
+        localStorage.setItem('roles', JSON.stringify(response.data.roles)); 
+
+        console.log('Login successful:', response.data);
+
+        this.router.navigate(['/customers']);
+      } catch (error) {
+        console.error('Login failed:', error);
+      }
+    } else {
+      console.log('Form is invalid');
+    }
   }
 }

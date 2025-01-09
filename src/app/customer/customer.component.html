@@ -1,0 +1,36 @@
+<div>
+    <h1>Customers List</h1>
+    <a routerLink="/customer/new" class="btn">Create New Customer</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customer of customers">
+                <td>{{ customer.customerId }}</td>
+                <td>{{ customer.fName }}</td>
+                <td>{{ customer.lName }}</td>
+                <td>{{ customer.email }}</td>
+                <td class="actions">
+                    <button (click)="showCustomer(customer.customerId)">Show</button>
+
+                    <!-- Edit button: Only enabled for admins -->
+                    <button 
+                        (click)="editCustomer(customer.customerId)" 
+                        [disabled]="!isAdmin">Edit</button>
+
+                    <!-- Delete button: Only enabled for admins -->
+                    <button 
+                        (click)="deleteCustomer(customer.customerId)" 
+                        [disabled]="!isAdmin">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

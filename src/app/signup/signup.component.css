@@ -14,7 +14,6 @@ body {
     text-align: center;
     color: #333;
     font-size: 2em;
-    margin-bottom: 30px;
     font-weight: 600;
   }
   
@@ -22,7 +21,7 @@ body {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 30px;
+    padding: 20px;
     width: 100%;
     max-width: 400px;
     margin-left: 50%;
@@ -34,7 +33,6 @@ body {
     display: block;
     font-size: 1.1em;
     color: #333;
-    margin-bottom: 10px;
     margin-top: 15px;
   }
   
@@ -46,7 +44,6 @@ body {
     border-radius: 5px;
     border: 2px solid #ccc;
     box-sizing: border-box;
-    margin-bottom: 20px;
     transition: all 0.3s ease;
   }
   
@@ -77,10 +74,6 @@ body {
     form {
       padding: 20px;
       width: 90%;
-    }
-  
-    h2 {
-      font-size: 1.5em;
     }
   
     button {

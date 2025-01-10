@@ -13,7 +13,7 @@ import axios from 'axios';
 })
 export class CustomerComponent implements OnInit {
   customers: any[] = [];
-  isAdmin: boolean = false;  // Variable to store if the user is admin
+  isAdmin: boolean = false;  
 
   constructor(private router: Router) {}
 
@@ -23,15 +23,14 @@ export class CustomerComponent implements OnInit {
 
   async loadCustomers() {
     const token = localStorage.getItem('accessToken');
-    const roles = JSON.parse(localStorage.getItem('roles') || '[]');  // Get roles directly from localStorage
+    const roles = JSON.parse(localStorage.getItem('roles') || '[]');  
 
     if (roles.includes('ROLE_ADMIN')) {
-      this.isAdmin = true;  // Set isAdmin flag if user has ROLE_ADMIN
+      this.isAdmin = true;  
     }
 
     if (token) {
       try {
-        // Fetch the customers from the API
         const response = await axios.get('http://localhost:8080/api/customer/customers', {
           headers: {
             Authorization: `Bearer ${token}`,
